@@ -114,9 +114,10 @@ sudo docker run -d -p 3306:3306 --name ConteinerCT -e "MYSQL_DATABASE=controltec
 sleep 25
 clear
 cat > table.sh<<END
-sudo docker exec ConteinerTF mysql -u root --password="urubu100" -e "grant all privileges on . to root@localhost;"
-sudo docker exec ConteinerTF mysql -u root --password="urubu100" -e "FLUSH PRIVILEGES;"
-sudo docker exec ConteinerTF mysql -u root --password="urubu100" -e "use controltec;
+sudo docker exec -it ConteinerCT bash
+sudo docker exec ConteinerCT mysql -u root] --password="urubu100" -e "grant all privileges on . to root@localhost;"
+sudo docker exec ConteinerCT mysql -u root --password="urubu100" -e "FLUSH PRIVILEGES;"
+sudo docker exec ConteinerCT mysql -u root --password="urubu100" -e "use controltec;
 create table Instituicao(
 idInstituicao int primary auto_increment,
 nome varchar(100),
