@@ -134,8 +134,7 @@ idTurma int primary key auto_increment,
 nome varchar(45),
 descricao varchar(45),
 sala varchar(10),
-fkInstituicao int,
-foreign key (fkInstituicao) references Instituicao(idInstituicao)
+fkInstituicao int
 );
 
 create table Usuario (
@@ -145,16 +144,14 @@ dataNascimento date,
 email varchar(50),
 senha varchar(50),
 tipo_usuario varchar(20),
-fkInstituicao int,
-foreign key (fkInstituicao) references Instituicao(idInstituicao)
+fkInstituicao int
 );
 
 create table Maquina (
 idMaquina int primary key auto_increment,
 identificador varchar(100),
 sistemaOperacional varchar(45),
-fkTurma int,
-foreign key (fkTurma) references Turma(idTurma)
+fkTurma int
 );
 
 create table Componentes (
@@ -162,8 +159,7 @@ idComponente int primary key auto_increment,
 nomeComponente varchar(45),
 modeloComponente varchar(45),
 tamanhoComponenteEmBytes bigint,
-fkMaquina int,
-foreign key (fkMaquina) references Maquina(idMaquina)
+fkMaquina int
 );
 
 
@@ -185,9 +181,7 @@ idAlerta int primary key identity(1,1),
 descricao varchar(200),
 hora datetime default current_timestamp,
 Usuario int,
-foreign key (Usuario) references Usuario(IdUsuario),
-Componente int,
-foreign key (Componente) references Componentes(IdComponente)
+Componente int
 );"
 
 echo  "$(tput setaf 10)[ControlTec]:$(tput setaf 7) Ok! Você já possui todas as dependências necessárias. Gostaria de iniciar a aplicação?"
